@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -12,27 +11,21 @@
       href="./assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="style/styles.css" />
-
+    <script defer src="script.js"></script>
     <title>Frontend Mentor | Product list with cart</title>
   </head>
   <body>
     <div class="wrapper">
       <div class="main">
         <p class="title">Desserts</p>
-        <section class="product">
-          <div class="itemCard">
-            <img src="./assets/images/image-waffle-thumbnail.jpg" alt="" />
-            <div class="item">Sample item</div>
-          </div>
-          <div class="itemCard">
-            <div class="item">Sample item</div>
-          </div>
-          <div class="itemCard">
-            <div class="item">Sample item</div>
-          </div>
-        </section>
+        <!-- Menu Items -->
+        <div class="menu-items"></div>
       </div>
-      <div class="cart">cart</div>
+      <!-- Cart Section -->
+      <div class="cart">
+        Your Cart
+        <span>(0)</span>
+      </div>
     </div>
   </body>
 </html>
