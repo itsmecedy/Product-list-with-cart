@@ -109,22 +109,30 @@ body {
     }
   }
   .cart {
-    background-color: #f4f4f4;
+    background-color: white;
     padding: 20px;
     flex: 1;
     border: 1px blue solid;
     font-size: 2rem;
     font-weight: 700;
     color: var(--Red);
-    display: flex;
-    height: auto;
+    height: fit-content;
+
     @media (max-width: 1023px) {
       // Hide cart on smaller screens
       display: none;
     }
     #cartItemsCount {
       font-size: 2rem;
+      border: 1px blue solid;
       font-weight: 700;
+    }
+    #cartItems {
+      border: 1px red solid;
+      display: flex;
+      img {
+        margin: 0 auto;
+      }
     }
   }
 }
