@@ -29,7 +29,7 @@ body {
   margin: auto;
   display: flex;
   justify-content: space-between;
-  padding-top: 5rem;
+  padding: 5rem 0;
   gap: 2rem;
 }
 .wrapper .main {
@@ -124,4 +124,8 @@ body {
   .wrapper .cart {
     display: none;
   }
+}
+.wrapper .cart #cartItemsCount {
+  font-size: 2rem;
+  font-weight: 700;
 }/*# sourceMappingURL=styles.css.map */
