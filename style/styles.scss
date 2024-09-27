@@ -20,7 +20,6 @@
 
 body {
   background-color: var(--Rose50);
-  height: 100vh; //can be removed after designing
 }
 
 .wrapper {
@@ -29,8 +28,14 @@ body {
   margin: auto;
   display: flex;
   justify-content: space-between;
-  padding: 5rem 0; 
+  padding: 5rem 0;
   gap: 2rem;
+  @media (max-width: 1400px) {
+    margin: 0 3rem;
+  }
+  @media (max-width: 600px) {
+    margin: 0;
+  }
   .main {
     width: 70%;
     border: 1px red solid;
@@ -46,7 +51,7 @@ body {
       gap: 20px;
       .menu-item {
         background-color: #f9f9f9;
-        border: 1px solid #e0e0e0;
+        border: 1px solid red;
         border-radius: 8px;
         overflow: hidden;
         text-align: center;
@@ -56,11 +61,11 @@ body {
         }
         picture {
           display: block;
-          position: relative; 
+          position: relative;
           .add-to-cart {
             position: absolute;
-            bottom: -12px; 
-            left: 50%; 
+            bottom: -12px;
+            left: 50%;
             transform: translateX(-50%);
             padding: 10px 20px;
             background-color: var(--Rose100);
@@ -69,13 +74,13 @@ body {
             border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            display: flex; 
-            align-items: center; 
-            border: 0.5px solid rgba(0, 0, 0, 0.5); 
+            display: flex;
+            align-items: center;
+            border: 0.5px solid rgba(0, 0, 0, 0.5);
             .cart-icon {
               width: 22px;
-              height: 22px; 
-              margin-right: 5px; 
+              height: 22px;
+              margin-right: 5px;
             }
             &:hover {
               background-color: #ff4500;

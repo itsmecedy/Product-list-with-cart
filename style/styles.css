@@ -20,7 +20,6 @@
 
 body {
   background-color: var(--Rose50);
-  height: 100vh;
 }
 
 .wrapper {
@@ -31,6 +30,16 @@ body {
   justify-content: space-between;
   padding: 5rem 0;
   gap: 2rem;
+}
+@media (max-width: 1400px) {
+  .wrapper {
+    margin: 0 3rem;
+  }
+}
+@media (max-width: 600px) {
+  .wrapper {
+    margin: 0;
+  }
 }
 .wrapper .main {
   width: 70%;
@@ -49,7 +58,7 @@ body {
 }
 .wrapper .main .menu-items .menu-item {
   background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
+  border: 1px solid red;
   border-radius: 8px;
   overflow: hidden;
   text-align: center;
