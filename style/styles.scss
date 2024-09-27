@@ -141,3 +141,39 @@ body {
     }
   }
 }
+// .menu-item {
+//   position: relative; /* Position relative for absolute positioning of children */
+
+//   .quantity-control {
+//     display: flex;
+//     align-items: center;
+//     position: absolute; /* Position it absolutely */
+//     bottom: 10px; /* Adjust as necessary */
+//     left: 50%; /* Center it horizontally */
+//     transform: translateX(-50%); /* Adjust for exact centering */
+//     background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+//     border-radius: 5px;
+//     padding: 5px; /* Add some padding */
+//     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+
+//     button {
+//       background-color: var(--Rose100);
+//       border: none;
+//       border-radius: 5px;
+//       padding: 5px 10px;
+//       cursor: pointer;
+//       font-weight: bold;
+
+//       &:hover {
+//         background-color: var(--Red);
+//         color: white;
+//       }
+//     }
+
+//     .quantity {
+//       margin: 0 10px;
+//       font-size: 1rem;
+//       font-weight: 600;
+//     }
+//   }
+// }
