@@ -56,38 +56,14 @@ body {
         overflow: hidden;
         text-align: center;
         transition: transform 0.3s ease;
+        display: block;
+        position: relative;
         &:hover {
           transform: translateY(-5px);
         }
         picture {
-          display: block;
-          position: relative;
-          .add-to-cart {
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px 20px;
-            background-color: var(--Rose100);
-            border: none;
-            font-weight: 600;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            border: 0.5px solid rgba(0, 0, 0, 0.5);
-            .cart-icon {
-              width: 22px;
-              height: 22px;
-              margin-right: 5px;
-            }
-            &:hover {
-              background-color: #ff4500;
-              color: white;
-            }
-          }
           img {
+            border: 1px solid blue;
             width: 100%;
             height: auto;
           }
@@ -108,6 +84,65 @@ body {
             font-weight: bold;
             margin-top: 10px;
             color: var(--Red);
+          }
+        }
+
+        .add-to-cart {
+          position: absolute;
+          bottom: 100px; // Adjust the position inside the picture
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 10px 20px;
+          background-color: var(--Rose100);
+          border: none;
+          font-weight: 600;
+          border-radius: 20px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          display: flex;
+          align-items: center;
+          border: 0.5px solid rgba(0, 0, 0, 0.5);
+          .cart-icon {
+            width: 22px;
+            height: 22px;
+            margin-right: 5px;
+          }
+          // &:hover {
+          //   background-color: var(--Red);
+          //   color: white;
+          // }
+        }
+        .quantity-control {
+          position: absolute;
+          bottom: 100px; // Adjust the position inside the picture
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: var(--Red);
+
+          border: none;
+          font-weight: 600;
+          border-radius: 20px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          display: flex;
+          align-items: center;
+          border: 0.5px solid rgba(0, 0, 0, 0.5);
+          padding: 10px 20px;
+
+          button {
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            // &:hover {
+            //   background-color: var(--Red);
+            //   color: white;
+            // }
+          }
+          .quantity {
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0 10px;
           }
         }
       }
@@ -141,39 +176,3 @@ body {
     }
   }
 }
-// .menu-item {
-//   position: relative; /* Position relative for absolute positioning of children */
-
-//   .quantity-control {
-//     display: flex;
-//     align-items: center;
-//     position: absolute; /* Position it absolutely */
-//     bottom: 10px; /* Adjust as necessary */
-//     left: 50%; /* Center it horizontally */
-//     transform: translateX(-50%); /* Adjust for exact centering */
-//     background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-//     border-radius: 5px;
-//     padding: 5px; /* Add some padding */
-//     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
-
-//     button {
-//       background-color: var(--Rose100);
-//       border: none;
-//       border-radius: 5px;
-//       padding: 5px 10px;
-//       cursor: pointer;
-//       font-weight: bold;
-
-//       &:hover {
-//         background-color: var(--Red);
-//         color: white;
-//       }
-//     }
-
-//     .quantity {
-//       margin: 0 10px;
-//       font-size: 1rem;
-//       font-weight: 600;
-//     }
-//   }
-// }

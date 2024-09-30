@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const menuItemsContainer = document.querySelector(".menu-items");
-
   // Fetch the data from data.json
   fetch("./data.json")
     .then((response) => response.json())
