@@ -70,9 +70,9 @@ body {
   transform: translateY(-5px);
 }
 .wrapper .main .menu-items .menu-item picture img {
-  border: 1px solid blue;
   width: 100%;
   height: auto;
+  box-sizing: border-box;
 }
 .wrapper .main .menu-items .menu-item .item-info {
   padding: 15px;
@@ -119,26 +119,31 @@ body {
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--Red);
-  border: none;
-  font-weight: 600;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
   display: flex;
   align-items: center;
+  border-radius: 20px;
   border: 0.5px solid rgba(0, 0, 0, 0.5);
-  padding: 10px 20px;
+  padding: 10px;
+  gap: 2rem;
+  color: white;
+  width: 150px;
+  height: 50px;
 }
 .wrapper .main .menu-items .menu-item .quantity-control button {
+  width: 30px;
+  height: 30px;
   border: none;
-  border-radius: 20px;
-  cursor: pointer;
+  border-radius: 50%;
   font-weight: 600;
+  color: white;
+  background-color: var(--Red);
+  border: 0.5px solid white;
 }
 .wrapper .main .menu-items .menu-item .quantity-control .quantity {
   font-size: 1rem;
   font-weight: 600;
-  padding: 0 10px;
+  min-width: 30px;
+  text-align: center;
 }
 .wrapper .cart {
   background-color: white;

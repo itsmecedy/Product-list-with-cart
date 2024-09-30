@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 <source media="(max-width: 767px)" srcset="${
                   item.image.mobile
                 }">
-                <img src="${item.image.thumbnail}" alt="${item.name}">
+                <img class="item-thumbnail" src="${
+                  item.image.thumbnail
+                }" alt="${item.name}">
               </picture>
               <div class="item-info">
                 <p class="item-category">${item.category}</p>
@@ -40,15 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Add event listeners for "Add to Cart" buttons
       const addToCartButtons = document.querySelectorAll(".add-to-cart");
-
       addToCartButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
           const menuItem = event.target.closest(".menu-item");
           const quantityControl = menuItem.querySelector(".quantity-control");
-
+          const itemThumbnail = menuItem.querySelector("picture img");
           // Show the quantity control and hide the "Add to Cart" button
           button.style.display = "none";
           quantityControl.style.display = "flex";
+          itemThumbnail.style.border = "1px solid blue";
 
           // Add event listeners for quantity buttons
           const decreaseButton = quantityControl.querySelector(".decrease");
@@ -59,6 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
             let quantity = parseInt(quantityDisplay.textContent);
             if (quantity > 1) {
               quantityDisplay.textContent = quantity - 1;
+            } else {
+              button.style.display = "flex";
+              itemThumbnail.style.border = "none";
+              quantityControl.style.display = "none";
             }
           });
 
