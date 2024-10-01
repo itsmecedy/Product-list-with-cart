@@ -169,8 +169,50 @@ body {
 }
 .wrapper .cart #cartItems {
   border: 1px red solid;
-  display: flex;
+  display: flex; /* Use flex for layout */
+  flex-direction: column; /* Stack items vertically */
+  gap: 10px; /* Space between items */
+  color: black;
 }
 .wrapper .cart #cartItems img {
   margin: 0 auto;
+}
+.wrapper .cart #cartItems .cart-item-element {
+  background-color: #f9f9f9;
+  border: 1px solid blue;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.wrapper .cart #cartItems .cart-item-element .cart-item {
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Space items evenly */
+  align-items: center; /* Center items vertically */
+}
+.wrapper .cart #cartItems .cart-item-element .cart-item .cart-item-prices {
+  font-weight: 600;
+  color: var(--Rose400);
+}
+.wrapper .cart #cartItems .cart-item-element .cart-item .cart-item-quantity {
+  font-weight: 800;
+  color: var(--Red);
+}
+.wrapper .cart #cartItems .cart-item-element .cart-item .removeItemCart {
+  cursor: pointer; /* Pointer cursor on hover */
+  border: none; /* Remove default button border */
+  border-radius: 50%; /* Make the button round */
+  width: 20px; /* Set width */
+  height: 20px; /* Set height */
+  border: 1px solid var(--Red); /* Border color */
+  color: var(--Red); /* Text color */
+  font-size: 16px; /* Font size */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  line-height: 1; /* Ensure line height doesn't affect centering */
+}
+.wrapper .cart #cartItems .total-order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }/*# sourceMappingURL=styles.css.map */
