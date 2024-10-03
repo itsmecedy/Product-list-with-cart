@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
           button.style.display = "none";
           quantityControl.style.display = "flex";
           itemThumbnail.style.border = "2px solid  var(--Red)";
+
           // Check if item is already in the cart
           let cartItem = cart.find((item) => item.name === name);
           if (cartItem) {

@@ -23,7 +23,6 @@ body {
 }
 
 .wrapper {
-  border: 1px red solid;
   max-width: 1400px;
   margin: auto;
   display: flex;
@@ -43,7 +42,6 @@ body {
 }
 .wrapper .main {
   width: 70%;
-  border: 1px red solid;
   flex: 3;
 }
 .wrapper .main .title {
@@ -58,13 +56,13 @@ body {
 }
 .wrapper .main .menu-items .menu-item {
   background-color: #f9f9f9;
-  border: 1px solid red;
   border-radius: 8px;
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease;
   display: block;
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .wrapper .main .menu-items .menu-item:hover {
   transform: translateY(-5px);
@@ -73,6 +71,7 @@ body {
   width: 100%;
   height: auto;
   box-sizing: border-box;
+  border-radius: 10px;
 }
 .wrapper .main .menu-items .menu-item .item-info {
   padding: 15px;
@@ -121,7 +120,7 @@ body {
   background-color: var(--Red);
   display: flex;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 50px;
   border: 0.5px solid rgba(0, 0, 0, 0.5);
   padding: 10px;
   gap: 2rem;
@@ -130,14 +129,15 @@ body {
   height: 50px;
 }
 .wrapper .main .menu-items .menu-item .quantity-control button {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border: none;
   border-radius: 50%;
   font-weight: 600;
   color: white;
   background-color: var(--Red);
   border: 0.5px solid white;
+  line-height: 1; /* Ensure line height doesn't affect centering */
 }
 .wrapper .main .menu-items .menu-item .quantity-control .quantity {
   font-size: 1rem;
@@ -149,7 +149,6 @@ body {
   background-color: white;
   padding: 20px;
   flex: 1;
-  border: 1px blue solid;
   font-size: 2rem;
   font-weight: 700;
   color: var(--Red);
@@ -164,11 +163,9 @@ body {
 }
 .wrapper .cart #cartItemsCount {
   font-size: 2rem;
-  border: 1px blue solid;
   font-weight: 700;
 }
 .wrapper .cart #cartItems {
-  border: 1px red solid;
   display: flex; /* Use flex for layout */
   flex-direction: column; /* Stack items vertically */
   gap: 10px; /* Space between items */
@@ -179,10 +176,10 @@ body {
 }
 .wrapper .cart #cartItems .cart-item-element {
   background-color: #f9f9f9;
-  border: 1px solid blue;
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .wrapper .cart #cartItems .cart-item-element .cart-item {
   display: flex; /* Use flexbox */
