@@ -7,7 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
   let totalPrice = 0;
 
   // Cart array to hold added items
-  const cart = [];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Load totalItems and totalPrice from localStorage if available
+  totalItems = localStorage.getItem("totalItems")
+    ? parseInt(localStorage.getItem("totalItems"))
+    : 0;
+  totalPrice = localStorage.getItem("totalPrice")
+    ? parseFloat(localStorage.getItem("totalPrice"))
+    : 0;
+
+  // Update cart UI on page load
+  updateCart();
 
   // Fetch the data from data.json
   fetch("./data.json")
@@ -60,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Show the quantity control and hide the "Add to Cart" button
           button.style.display = "none";
           quantityControl.style.display = "flex";
-          itemThumbnail.style.border = "2px solid  var(--Red)";
+          itemThumbnail.style.border = "2px solid var(--Red)";
 
           // Check if item is already in the cart
           let cartItem = cart.find((item) => item.name === name);
@@ -79,6 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
             updateCart();
           }
 
+          // Save cart data to localStorage
+          saveCart();
+
           // Update the quantity display
           const quantityDisplay = quantityControl.querySelector(".quantity");
           quantityDisplay.textContent = cartItem.quantity;
@@ -95,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
               totalPrice -= price; // Decrease total price
               cartItem.quantity = quantity - 1; // Update quantity in cart
               updateCart(); // Update the cart display
+              saveCart(); // Save changes
             } else {
               button.style.display = "flex"; // Show the add to cart button again
               itemThumbnail.style.border = "none"; // Remove outline
@@ -105,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
               totalPrice -= price;
               cart.splice(cart.indexOf(cartItem), 1); // Remove from cart
               updateCart(); // Update the cart display
+              saveCart(); // Save changes
             }
           });
 
@@ -117,11 +133,13 @@ document.addEventListener("DOMContentLoaded", () => {
             cartItem.quantity = quantity; // Update quantity in cart
             totalPrice += price; // Increase total price
             updateCart(); // Update the cart display
+            saveCart(); // Save changes
           });
         });
       });
     })
     .catch((error) => console.error("Error fetching the data:", error));
+
   function updateCart() {
     cartItemsCount.textContent = `(${totalItems})`;
 
@@ -184,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Remove the item from the cart
             cart.splice(cartItemIndex, 1);
             updateCart(); // Update the cart display
+            saveCart(); // Save changes
 
             // Show the "Add to Cart" button again
             const menuItem = Array.from(
@@ -207,5 +226,10 @@ document.addEventListener("DOMContentLoaded", () => {
       emptyCartMessage.style.display = "block";
     }
   }
+
+  function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("totalItems", totalItems);
+    localStorage.setItem("totalPrice", totalPrice.toFixed(2));
+  }
 });
-// class=""
