@@ -29,26 +29,53 @@ body {
   justify-content: space-between;
   padding: 5rem 0;
   gap: 2rem;
-  border: 1px solid blue;
 }
 @media (max-width: 1400px) {
   .wrapper {
     margin: 0 3rem;
   }
 }
+@media (max-width: 1000px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}
 @media (max-width: 600px) {
   .wrapper {
-    margin: 0 1rem;
+    margin: 0 2rem;
+    padding: 3rem 0;
   }
 }
 .wrapper .main {
   width: 70%;
   flex: 3;
 }
+@media (max-width: 600px) {
+  .wrapper .main {
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+@media (max-width: 1000px) {
+  .wrapper .main {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
 .wrapper .main .title {
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+@media (max-width: 600px) {
+  .wrapper .main .title {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 450px) {
+  .wrapper .main .title {
+    font-size: 2.5rem;
+  }
 }
 .wrapper .main .menu-items {
   display: grid;
@@ -107,6 +134,7 @@ body {
   display: flex;
   align-items: center;
   border: 0.5px solid rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
 }
 .wrapper .main .menu-items .menu-item .add-to-cart .cart-icon {
   width: 22px;
@@ -156,11 +184,7 @@ body {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-}
-@media (max-width: 1023px) {
-  .wrapper .cart {
-    display: none;
-  }
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .wrapper .cart #cartItemsCount {
   font-size: 2rem;
