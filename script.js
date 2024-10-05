@@ -76,65 +76,57 @@ document.addEventListener("DOMContentLoaded", () => {
           // Check if item is already in the cart
           let cartItem = cart.find((item) => item.name === name);
           if (cartItem) {
-            // If item exists, update the quantity
             cartItem.quantity++;
-            totalItems++;
-            totalPrice += price;
-            updateCart();
           } else {
-            // If item doesn't exist, add it to the cart
             cartItem = { name, price, quantity: 1 };
             cart.push(cartItem);
-            totalItems++;
-            totalPrice += price;
-            updateCart();
           }
 
-          // Save cart data to localStorage
+          totalItems++;
+          totalPrice += price;
+          updateCart();
           saveCart();
 
           // Update the quantity display
           const quantityDisplay = quantityControl.querySelector(".quantity");
           quantityDisplay.textContent = cartItem.quantity;
 
-          // Add event listeners for quantity buttons
+          // Add event listeners for quantity buttons only once
           const decreaseButton = quantityControl.querySelector(".decrease");
           const increaseButton = quantityControl.querySelector(".increase");
 
           // Handle decrease button click
-          decreaseButton.addEventListener("click", () => {
+          decreaseButton.onclick = () => {
             const quantity = parseInt(quantityDisplay.textContent);
             if (quantity > 1) {
               quantityDisplay.textContent = quantity - 1;
-              totalPrice -= price; // Decrease total price
-              cartItem.quantity = quantity - 1; // Update quantity in cart
-              updateCart(); // Update the cart display
-              saveCart(); // Save changes
-            } else {
-              button.style.display = "flex"; // Show the add to cart button again
-              itemThumbnail.style.border = "none"; // Remove outline
-              quantityControl.style.display = "none"; // Hide quantity control
-
-              // Remove from cart
+              cartItem.quantity--;
               totalItems--;
               totalPrice -= price;
-              cart.splice(cart.indexOf(cartItem), 1); // Remove from cart
-              updateCart(); // Update the cart display
-              saveCart(); // Save changes
+              updateCart();
+              saveCart();
+            } else {
+              // Handle item removal
+              button.style.display = "flex";
+              itemThumbnail.style.border = "none";
+              quantityControl.style.display = "none";
+              cart.splice(cart.indexOf(cartItem), 1);
+              totalItems--;
+              totalPrice -= price;
+              updateCart();
+              saveCart();
             }
-          });
+          };
 
           // Handle increase button click
-          increaseButton.addEventListener("click", () => {
-            const quantity = parseInt(quantityDisplay.textContent) + 1;
-            quantityDisplay.textContent = quantity;
+          increaseButton.onclick = () => {
+            cartItem.quantity++;
             totalItems++;
-            // Update cart item quantity and total price
-            cartItem.quantity = quantity; // Update quantity in cart
-            totalPrice += price; // Increase total price
-            updateCart(); // Update the cart display
-            saveCart(); // Save changes
-          });
+            totalPrice += price;
+            quantityDisplay.textContent = cartItem.quantity;
+            updateCart();
+            saveCart();
+          };
         });
       });
     })
@@ -142,8 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateCart() {
     cartItemsCount.textContent = `(${totalItems})`;
-
-    // Clear previous cart items
     cartItemsContainer.innerHTML = "";
 
     if (cart.length > 0) {
@@ -156,55 +146,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const cartItemElement = document.createElement("div");
         cartItemElement.classList.add("cart-item-element");
-
         cartItemElement.innerHTML = `
-            <div class="cart-item">
-                <div>
-                    <p class="cart-item-name">${item.name}</p>
-                    <p>
-                        <span class="cart-item-quantity"> x${
-                          item.quantity
-                        } &nbsp; &nbsp;</span>
-                        <span class="cart-item-prices">@ $${item.price.toFixed(
-                          2
-                        )} &nbsp; $${itemTotal.toFixed(2)}</span>
-                    </p>
-                </div>
-                <button class="removeItemCart" data-name="${
-                  item.name
-                }">x</button>
+          <div class="cart-item">
+            <div>
+              <p class="cart-item-name">${item.name}</p>
+              <p>
+                <span class="cart-item-quantity">x${item.quantity}</span>
+                <span class="cart-item-prices">@ $${item.price.toFixed(
+                  2
+                )} = $${itemTotal.toFixed(2)}</span>
+              </p>
             </div>
-            `;
+            <button class="removeItemCart" data-name="${item.name}">x</button>
+          </div>`;
         cartItemsContainer.appendChild(cartItemElement);
       });
 
       const totalElement = document.createElement("div");
       totalElement.classList.add("total-order");
-      totalElement.innerHTML = `
-        <div>Order Total:</div>
-        <div class="cart-total-price">$${cartTotal.toFixed(2)}</div>`;
-
+      totalElement.innerHTML = `<div>Order Total:</div><div class="cart-total-price">$${cartTotal.toFixed(
+        2
+      )}</div>`;
       cartItemsContainer.appendChild(totalElement);
 
+      // Add carbon-neutral element
+      const carbonNeutralElement = document.createElement("div");
+      carbonNeutralElement.classList.add("carbon-neutral");
+      carbonNeutralElement.innerHTML = `
+          <img src="./assets/images/icon-carbon-neutral.svg" alt="carbon-neutral" />
+          <p>This is a <b>carbon-neutral</b> delivery</p>`;
+      cartItemsContainer.appendChild(carbonNeutralElement);
+
+      // Add confirm order button
+      const confirmOrderElement = document.createElement("div");
+      confirmOrderElement.classList.add("confirm-order");
+      confirmOrderElement.innerHTML = `<button class="confirm-order">Confirm Order</button>`;
+      cartItemsContainer.appendChild(confirmOrderElement);
+
       // Add event listeners for remove buttons
-      const removeButtons = document.querySelectorAll(".removeItemCart");
-      removeButtons.forEach((button) => {
+      document.querySelectorAll(".removeItemCart").forEach((button) => {
         button.addEventListener("click", () => {
           const name = button.getAttribute("data-name");
-          // Find the item in the cart
           const cartItemIndex = cart.findIndex((item) => item.name === name);
           if (cartItemIndex > -1) {
-            // Update total items and price
             totalItems -= cart[cartItemIndex].quantity;
             totalPrice -=
               cart[cartItemIndex].price * cart[cartItemIndex].quantity;
-
-            // Remove the item from the cart
             cart.splice(cartItemIndex, 1);
-            updateCart(); // Update the cart display
-            saveCart(); // Save changes
+            updateCart();
+            saveCart();
 
-            // Show the "Add to Cart" button again
+            // Reset the "Add to Cart" button and quantity control
             const menuItem = Array.from(
               document.querySelectorAll(".menu-item")
             ).find(

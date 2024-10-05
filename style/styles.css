@@ -233,8 +233,29 @@ body {
   align-items: center; /* Center text vertically */
   line-height: 1; /* Ensure line height doesn't affect centering */
 }
-.wrapper .cart #cartItems .total-order {
+.wrapper .cart .total-order {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.wrapper .cart .carbon-neutral {
+  font-weight: normal;
+  display: flex;
+  background-color: var(--Rose100);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+.wrapper .cart .confirm-order {
+  border-radius: 50px;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+.wrapper .cart .confirm-order button {
+  padding: 1rem;
+  background-color: var(--Red);
+  color: whitesmoke;
+  font-weight: 500;
+  outline: none;
+  border: none;
 }/*# sourceMappingURL=styles.css.map */
