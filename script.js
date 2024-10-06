@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuItemsContainer = document.querySelector(".menu-items");
   const cartItemsCount = document.getElementById("cartItemsCount");
   const cartItemsContainer = document.getElementById("cartItems");
+  const emptyCartImg = document.getElementById("emptyCartImg");
   const emptyCartMessage = document.querySelector(".empty-cart-message");
   let totalItems = 0;
   let totalPrice = 0;
@@ -138,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (cart.length > 0) {
       emptyCartMessage.style.display = "none";
+      emptyCartImg.style.display = "none";
       let cartTotal = 0;
 
       cart.forEach((item) => {
@@ -216,6 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } else {
       emptyCartMessage.style.display = "block";
+      emptyCartImg.style.display = "block";
     }
   }
 

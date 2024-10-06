@@ -233,6 +233,10 @@ body {
   align-items: center; /* Center text vertically */
   line-height: 1; /* Ensure line height doesn't affect centering */
 }
+.wrapper .cart #emptyCartImg {
+  display: flex;
+  margin: 0 auto;
+}
 .wrapper .cart .total-order {
   display: flex;
   justify-content: space-between;

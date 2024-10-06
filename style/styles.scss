@@ -236,6 +236,10 @@ body {
         }
       }
     }
+    #emptyCartImg {
+      display: flex;
+      margin: 0 auto;
+    }
     .total-order {
       display: flex;
       justify-content: space-between;
