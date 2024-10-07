@@ -211,7 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // confirm order clicked
       confirmOrderElement.addEventListener("click", () => {
-        console.log("alert");
         populateModal();
         cartModal.style.display = "block"; // Show the modal
 
@@ -308,3 +307,4 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("totalPrice", totalPrice.toFixed(2));
   }
 });
+// need the modal same as design and reset when order confirmed not ok btn in alert. add img in modal.
