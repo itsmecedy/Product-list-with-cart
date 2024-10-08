@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalCartItems = document.getElementById("modalCartItems");
   const modalTotalPrice = document.getElementById("modalTotalPrice");
   const closeModal = cartModal.querySelector(".close");
-  const modalConfirmOrder = document.getElementById("modalConfirmOrder");
 
   let totalItems = 0;
   let totalPrice = 0;
@@ -215,14 +214,20 @@ document.addEventListener("DOMContentLoaded", () => {
         cartModal.style.display = "block"; // Show the modal
 
         // Close the modal
-        closeModal.onclick = () => {
-          cartModal.style.display = "none";
-        };
+        const closeModalEvent = (closeModal.onclick = () => {
+          cart.length = 0; // Clear the cart
+          totalItems = 0; // Reset total items
+          totalPrice = 0; // Reset total price
+          saveCart(); // Save the empty cart
+          updateCart(); // Update the cart UI
+          cartModal.style.display = "none"; // Close the modal
+          resetAddToCartBtns(); // Call the reset function here
+        });
 
         // Close the modal when clicking outside of the modal
         window.onclick = (event) => {
           if (event.target === cartModal) {
-            cartModal.style.display = "none";
+            closeModalEvent();
           }
         };
 
@@ -247,21 +252,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
           modalTotalPrice.textContent = modalTotal.toFixed(2);
         }
-
-        // Confirm order button functionality XXXXXXXXXXXXX
-        modalConfirmOrder.onclick = () => {
-          // Implement order confirmation logic here
-          alert("Order confirmed!");
-          cart.length = 0; // Clear the cart
-          totalItems = 0; // Reset total items
-          totalPrice = 0; // Reset total price
-          saveCart(); // Save the empty cart
-          updateCart(); // Update the cart UI
-          cartModal.style.display = "none"; // Close the modal
-
-          // Reset the Add to Cart buttons
-          resetAddToCartBtns(); // Call the reset function here
-        };
       });
 
       // Add event listeners for remove buttons
