@@ -281,9 +281,9 @@ body {
   .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    padding: 3rem;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 40%; /* Could be more or less, depending on screen size */
     .close {
       color: #aaa;
       float: right;
@@ -295,6 +295,24 @@ body {
         text-decoration: none;
         cursor: pointer;
       }
+    }
+    .order-confirmed-label {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .enjoy-label {
+      color: #888;
+    }
+    .start-new-order-btn {
+      border-radius: 50px;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      background-color: var(--Red);
+      color: whitesmoke;
+      font-weight: 500;
+      outline: none;
+      border: none;
     }
   }
 }

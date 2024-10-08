@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Close the modal when clicking outside of the modal
         window.onclick = (event) => {
           if (event.target === cartModal) {
-            closeModalEvent();
+            closeModalEvent(); // Call the close modal function here
           }
         };
 
@@ -243,6 +243,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const modalItemElement = document.createElement("div");
             modalItemElement.classList.add("modal-cart-item");
             modalItemElement.innerHTML = `
+
+
+            
               <p>${item.name} - x${item.quantity} @ $${item.price.toFixed(
               2
             )} = $${itemTotal.toFixed(2)}</p>
