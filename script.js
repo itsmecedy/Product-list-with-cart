@@ -241,19 +241,23 @@ document.addEventListener("DOMContentLoaded", () => {
             modalTotal += itemTotal;
 
             const modalItemElement = document.createElement("div");
-            modalItemElement.classList.add("modal-cart-item");
-            modalItemElement.innerHTML = `
-
-
-            
-              <p>${item.name} - x${item.quantity} @ $${item.price.toFixed(
-              2
-            )} = $${itemTotal.toFixed(2)}</p>
+            modalItemElement.classList.add("modal-item-container");
+            modalItemElement.innerHTML =
+              //  <img src="./assets/images/image-baklava-desktop.jpg" alt="" srcset="">
+              // add this before "modal-cart-item"
+              `
+            <div class="modal-cart-item">
+              <p class="item-name">${item.name}</p>
+              <span class="item-quantity">x${item.quantity}</span>
+              <span class="item-price">@ $${item.price.toFixed(2)}</span>
+            </div>
+            <div class="item-total">$${itemTotal.toFixed(2)}</div>
             `;
+
             modalCartItems.appendChild(modalItemElement);
           });
 
-          modalTotalPrice.textContent = modalTotal.toFixed(2);
+          modalTotalPrice.textContent = `$ ${modalTotal.toFixed(2)}`;
         }
       });
 

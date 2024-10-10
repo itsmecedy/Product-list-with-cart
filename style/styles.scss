@@ -303,6 +303,47 @@ body {
     .enjoy-label {
       color: #888;
     }
+    #modalCartItems {
+      border: 1px red solid;
+      // border-radius: 10px;
+      margin: 1rem 0 0 0;
+      background-color: var(--Rose100);
+      .modal-item-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+
+        .modal-cart-item {
+          .item-name {
+            font-weight: 600;
+          }
+          .item-quantity {
+            font-weight: 600;
+            color: var(--Red);
+            margin-right: 1rem;
+          }
+          .item-price {
+            color: #888;
+          }
+        }
+        .item-total {
+          font-weight: 600;
+        }
+      }
+    }
+    .modal-total {
+      padding: 2rem 1rem;
+      background-color: var(--Rose100);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      #modalTotalPrice {
+        font-weight: 900;
+        font-size: 1.5rem;
+      }
+    }
     .start-new-order-btn {
       border-radius: 50px;
       width: 100%;

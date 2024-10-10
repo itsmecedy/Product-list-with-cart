@@ -299,6 +299,42 @@ body {
 .modal .modal-content .enjoy-label {
   color: #888;
 }
+.modal .modal-content #modalCartItems {
+  border: 1px red solid;
+  margin: 1rem 0 0 0;
+  background-color: var(--Rose100);
+}
+.modal .modal-content #modalCartItems .modal-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.modal .modal-content #modalCartItems .modal-item-container .modal-cart-item .item-name {
+  font-weight: 600;
+}
+.modal .modal-content #modalCartItems .modal-item-container .modal-cart-item .item-quantity {
+  font-weight: 600;
+  color: var(--Red);
+  margin-right: 1rem;
+}
+.modal .modal-content #modalCartItems .modal-item-container .modal-cart-item .item-price {
+  color: #888;
+}
+.modal .modal-content #modalCartItems .modal-item-container .item-total {
+  font-weight: 600;
+}
+.modal .modal-content .modal-total {
+  padding: 2rem 1rem;
+  background-color: var(--Rose100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal .modal-content .modal-total #modalTotalPrice {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
 .modal .modal-content .start-new-order-btn {
   border-radius: 50px;
   width: 100%;
