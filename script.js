@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalCartItems = document.getElementById("modalCartItems");
   const modalTotalPrice = document.getElementById("modalTotalPrice");
   const closeModal = cartModal.querySelector(".close");
+  const startNewOrderBtn = cartModal.querySelector(".start-new-order-btn ");
 
   let totalItems = 0;
   let totalPrice = 0;
@@ -231,6 +232,10 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         };
 
+        startNewOrderBtn.addEventListener("click", () => {
+          closeModalEvent();
+        });
+
         // Populate the modal with cart items
         function populateModal() {
           modalCartItems.innerHTML = ""; // Clear existing items
@@ -304,4 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("totalPrice", totalPrice.toFixed(2));
   }
 });
-// need the modal same as design and reset when order confirmed not ok btn in alert. add img in modal.
+// To-Do:
+//  add img in each item in modal after clicking "confirm order"
+//  retain button style of clicked addToCartBtn(quantity control button) when         refreshed
