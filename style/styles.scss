@@ -286,7 +286,19 @@ body {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 3rem;
     border: 1px solid #888;
-    width: 40%; /* Could be more or less, depending on screen size */
+    width: 50%;
+    @media (max-width: 1300px) {
+      width: 70%;
+    }
+    @media (max-width: 1000px) {
+      width: 100%;
+      bottom: 0;
+      position: absolute;
+      margin: 0;
+    }
+    @media (max-width: 450px) {
+      padding: 1.5rem;
+    }
     .close {
       color: #aaa;
       float: right;
@@ -302,9 +314,18 @@ body {
     .order-confirmed-label {
       font-size: 2.5rem;
       font-weight: 700;
+      @media (max-width: 1000px) {
+        font-size: 2rem;
+      }
+      @media (max-width: 450px) {
+        font-size: 1.5rem;
+      }
     }
     .enjoy-label {
       color: #888;
+      @media (max-width: 450px) {
+        font-size: 1rem;
+      }
     }
     #modalCartItems {
       margin: 1rem 0 0 0;
@@ -343,6 +364,9 @@ body {
       #modalTotalPrice {
         font-weight: 900;
         font-size: 1.5rem;
+        @media (max-width: 450px) {
+          font-size: 1rem;
+        }
       }
     }
     .start-new-order-btn {

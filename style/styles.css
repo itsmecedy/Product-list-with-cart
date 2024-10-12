@@ -282,7 +282,25 @@ body {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 3rem;
   border: 1px solid #888;
-  width: 40%; /* Could be more or less, depending on screen size */
+  width: 50%;
+}
+@media (max-width: 1300px) {
+  .modal .modal-content {
+    width: 70%;
+  }
+}
+@media (max-width: 1000px) {
+  .modal .modal-content {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    margin: 0;
+  }
+}
+@media (max-width: 450px) {
+  .modal .modal-content {
+    padding: 1.5rem;
+  }
 }
 .modal .modal-content .close {
   color: #aaa;
@@ -299,8 +317,23 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
 }
+@media (max-width: 1000px) {
+  .modal .modal-content .order-confirmed-label {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 450px) {
+  .modal .modal-content .order-confirmed-label {
+    font-size: 1.5rem;
+  }
+}
 .modal .modal-content .enjoy-label {
   color: #888;
+}
+@media (max-width: 450px) {
+  .modal .modal-content .enjoy-label {
+    font-size: 1rem;
+  }
 }
 .modal .modal-content #modalCartItems {
   margin: 1rem 0 0 0;
@@ -336,6 +369,11 @@ body {
 .modal .modal-content .modal-total #modalTotalPrice {
   font-weight: 900;
   font-size: 1.5rem;
+}
+@media (max-width: 450px) {
+  .modal .modal-content .modal-total #modalTotalPrice {
+    font-size: 1rem;
+  }
 }
 .modal .modal-content .start-new-order-btn {
   border-radius: 50px;
