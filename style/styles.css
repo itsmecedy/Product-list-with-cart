@@ -273,7 +273,7 @@ body {
   left: 0;
   top: 0;
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  height: 100vh; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
 }
@@ -344,6 +344,15 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+}
+.modal .modal-content #modalCartItems .modal-item-container .modal-cart-item {
+  display: flex;
+}
+.modal .modal-content #modalCartItems .modal-item-container .modal-cart-item .modal-item-image {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border-radius: 8px;
 }
 .modal .modal-content #modalCartItems .modal-item-container .modal-cart-item .item-name {
   font-weight: 600;

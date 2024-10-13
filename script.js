@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const menuItem = event.target.closest(".menu-item");
           const quantityControl = menuItem.querySelector(".quantity-control");
           const itemThumbnail = menuItem.querySelector("picture img");
+          const imageUrl = itemThumbnail.src; // Get the image URL
           const price = parseFloat(button.getAttribute("data-price"));
           const name = button.getAttribute("data-name");
 
@@ -86,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (cartItem) {
             cartItem.quantity++;
           } else {
-            cartItem = { name, price, quantity: 1 };
+            cartItem = { name, price, imageUrl, quantity: 1 };
             cart.push(cartItem);
           }
 
@@ -252,9 +253,14 @@ document.addEventListener("DOMContentLoaded", () => {
               // add this before "modal-cart-item"
               `
             <div class="modal-cart-item">
-              <p class="item-name">${item.name}</p>
-              <span class="item-quantity">x${item.quantity}</span>
-              <span class="item-price">@ $${item.price.toFixed(2)}</span>
+             <div>
+              <img src="${item.imageUrl}" alt="${item.name}" class="modal-item-image"> 
+              </div>
+              <div> 
+                <p class="item-name">${item.name}</p>
+                <span class="item-quantity">x${item.quantity}</span>
+                <span class="item-price">@ $${item.price.toFixed(2)}</span>
+              </div>
             </div>
             <div class="item-total">$${itemTotal.toFixed(2)}</div>
             `;
