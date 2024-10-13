@@ -9,6 +9,26 @@
   --Rose500: hsl(12, 20%, 44%);
   --Rose900: hsl(14, 65%, 9%);
 }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 * {
   box-sizing: border-box;
@@ -29,7 +49,6 @@ body {
   justify-content: space-between;
   padding: 5rem 0;
   gap: 2rem;
-  // border: 1px solid blue;
   @media (max-width: 1400px) {
     margin: 0 3rem;
   }
@@ -37,7 +56,7 @@ body {
     flex-direction: column;
   }
   @media (max-width: 600px) {
-    margin: 0 2rem;
+    margin: 0 1rem;
     padding: 3rem 0;
   }
   .main {
@@ -114,7 +133,6 @@ body {
           transform: translateX(-50%);
           padding: 10px 20px;
           background-color: var(--Rose100);
-          border: none;
           font-weight: 600;
           border-radius: 20px;
           cursor: pointer;
@@ -181,12 +199,6 @@ body {
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
       rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 
-    // @media (max-width: 1000px) {
-    //   // Hide cart on smaller screens
-    //   // display: none;
-    //   // margin: 0 5.5rem;
-
-    // }
     #cartItemsCount {
       font-size: 2rem;
       font-weight: 700;
@@ -272,6 +284,9 @@ body {
 }
 
 .modal {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1000; /* Sit on top */
@@ -279,14 +294,19 @@ body {
   top: 0;
   width: 100%; /* Full width */
   height: 100vh; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  overflow: hidden; /* Prevent scrolling of the modal */
+  background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
     padding: 3rem;
     border: 1px solid #888;
-    width: 50%;
+    width: 50%; /* Default width */
+    max-height: 90vh; /* Prevents content from overflowing the viewport */
+    overflow: hidden; /* Prevent scrolling of modal content */
+    position: relative; /* For absolute positioning of children */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow for better visibility */
+
     @media (max-width: 1300px) {
       width: 70%;
     }
@@ -299,6 +319,7 @@ body {
     @media (max-width: 450px) {
       padding: 1.5rem;
     }
+
     .close {
       color: #aaa;
       float: right;
@@ -311,6 +332,7 @@ body {
         cursor: pointer;
       }
     }
+
     .order-confirmed-label {
       font-size: 2.5rem;
       font-weight: 700;
@@ -321,27 +343,40 @@ body {
         font-size: 1.5rem;
       }
     }
+
     .enjoy-label {
       color: #888;
       @media (max-width: 450px) {
         font-size: 1rem;
       }
     }
+
     #modalCartItems {
       margin: 1rem 0 0 0;
       background-color: var(--Rose100);
+      max-height: 300px; /* Set a max height for scrollable area */
+      overflow-y: auto; /* Enable vertical scrolling */
+      padding: 0 1rem; /* Optional padding */
+
       .modal-item-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem;
+
         .modal-cart-item {
           display: flex;
+          justify-content: space-between;
+          align-items: center;
           .modal-item-image {
             width: 60px;
             height: 60px;
             margin-right: 15px;
             border-radius: 8px;
+            @media (max-width: 600px) {
+              width: 30px;
+              height: 40px;
+            }
           }
           .item-name {
             font-weight: 600;
@@ -360,6 +395,7 @@ body {
         }
       }
     }
+
     .modal-total {
       padding: 2rem 1rem;
       background-color: var(--Rose100);
@@ -375,6 +411,7 @@ body {
         }
       }
     }
+
     .start-new-order-btn {
       border-radius: 50px;
       width: 100%;

@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // confirm order clicked
       confirmOrderElement.addEventListener("click", () => {
         populateModal();
-        cartModal.style.display = "block"; // Show the modal
+        cartModal.style.display = "flex"; // Show the modal
 
         // Close the modal
         const closeModalEvent = (closeModal.onclick = () => {
@@ -224,6 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
           updateCart(); // Update the cart UI
           cartModal.style.display = "none"; // Close the modal
           resetAddToCartBtns(); // Call the reset function here
+          hideModal();
         });
 
         // Close the modal when clicking outside of the modal
@@ -254,7 +255,9 @@ document.addEventListener("DOMContentLoaded", () => {
               `
             <div class="modal-cart-item">
              <div>
-              <img src="${item.imageUrl}" alt="${item.name}" class="modal-item-image"> 
+              <img src="${item.imageUrl}" alt="${
+                item.name
+              }" class="modal-item-image"> 
               </div>
               <div> 
                 <p class="item-name">${item.name}</p>
@@ -264,6 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <div class="item-total">$${itemTotal.toFixed(2)}</div>
             `;
+            showModal();
 
             modalCartItems.appendChild(modalItemElement);
           });
@@ -314,7 +318,18 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("totalItems", totalItems);
     localStorage.setItem("totalPrice", totalPrice.toFixed(2));
   }
+  function showModal() {
+    const modal = document.querySelector(".modal");
+    modal.style.display = "flex"; // Use 'flex' to center the content
+  }
+
+  // Function to hide the modal
+  function hideModal() {
+    const modal = document.querySelector(".modal");
+    modal.style.display = "none"; // Hide the modal
+  }
 });
+
 // To-Do:
 //  add img in each item in modal after clicking "confirm order"
 //  retain button style of clicked addToCartBtn(quantity control button) when         refreshed
