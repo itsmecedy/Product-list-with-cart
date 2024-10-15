@@ -330,6 +330,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// To-Do:
-//  add img in each item in modal after clicking "confirm order"
-//  retain button style of clicked addToCartBtn(quantity control button) when         refreshed
